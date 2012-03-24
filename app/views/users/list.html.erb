@@ -1,0 +1,27 @@
+<h1>User Management</h1>
+<table cellpadding="5" cellspacing="0" border="0">
+	<thead>
+		<th>ID</th>
+		<th>First Name</th>
+		<th>Last Name</th>
+		<th>Username</th>
+		<th>Email</th>
+		<th>Action</th>
+	</thead>
+	<tbody>
+		<% @users.each do |user|  %>
+		<tr>
+			<td>#<%= user.id %></td>
+			<td><%= user.first_name %></td>
+			<td><%= user.last_name %></td>
+			<td><%= user.username %></td>
+			<td><%= user.email %></td>
+			<td>
+				<%= link_to ("View", :action => 'show', :id => user.id) %> |
+				<%= link_to ("Edit", :action => 'edit', :id => user.id) %> |
+				<%= link_to ("Delete", :action => 'delete', :id => user.id) %>
+			</td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>

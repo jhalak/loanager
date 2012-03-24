@@ -6,7 +6,7 @@ class CreateTransactions < ActiveRecord::Migration
       t.integer "from"
       t.integer "to"
       t.float   "amount"
-      t.integer "user_id"
+      t.references "user_id"
       t.timestamps
     end
   end
