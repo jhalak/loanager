@@ -14,7 +14,13 @@ Loanager::Application.routes.draw do
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
-
+  resources :users do
+    member do
+      get :delete
+    end
+  end
+  #match 'users/list' => 'user#list'
+    
   # Sample resource route with options:
   #   resources :products do
   #     member do

@@ -1,4 +1,4 @@
-<%= link_to ("<< Back to list", :action => "list") %>
+<%= link_to ("<< Back to list", users_path) %>
 
 <h1><%= @user.username %></h1>
 
@@ -11,6 +11,9 @@
 	
 	<dt>Username</dt>
 	<dd><%= @user.username %></dd>
+	
+	<dt>Password</dt>
+	<dd><%= @user.password %></dd>
 	
 	<dt>Email</dt>
 	<dd><%= @user.email %></dd>

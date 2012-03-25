@@ -1,0 +1,8 @@
+<h3>Are you sure you want to delete this user: <%= @user.username %></h3>
+
+<%= form_for (@user) do |f| %>
+	<%= hidden_field_tag '_method', "delete"%>
+	<%= submit_tag "Confirm" %>
+	<%= link_to "Cancel", users_path %>
+<% end %>
+

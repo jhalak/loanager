@@ -1,6 +1,6 @@
-<h1>Create new user</h1>
+<h1>Edit user</h1>
 
-<%= form_for(@user) do |f| %>
+<%= form_for(:user, :url => {:action => "update", :id => @user.id}) do |f| %>
 	<table>
 		<tr>
 			<td>First Name</td>
@@ -23,7 +23,7 @@
 			<td><%= f.text_field(:email) %></td>
 		</tr>
 		<tr>
-			<td colspan="2"><%= submit_tag("Create user") %></td>
+			<td colspan="2"><%= submit_tag("Update user") %></td>
 		</tr>
 	</table>	
 <% end %>

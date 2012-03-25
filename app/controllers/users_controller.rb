@@ -1,5 +1,10 @@
 class UsersController < ApplicationController
   
+  def index
+    list
+    render("list")
+  end
+  
   def list
     @users = User.order(:created_at => "desc");
   end
@@ -9,7 +14,7 @@ class UsersController < ApplicationController
   end
   
   def new
-    @user = User.new(:email => 'required')
+    @user = User.new()
   end
   
   def create
@@ -18,10 +23,35 @@ class UsersController < ApplicationController
     #save the object
     if @user.save
       #redirect
-      redirect_to(:action => "list")
+      redirect_to(@user)
     else
       #view the form
-      render ("new")
+      render("new")
     end
   end
+  
+  def edit
+    #load the object
+    @user = User.find(params[:id])    
+  end
+  
+  def update
+    #load the object
+    @user = User.find(params[:id])
+    #update the object
+    if @user.update_attributes(params[:user])
+      redirect_to(:action => "show", :id => @user.id)
+    else
+      render("edit")
+    end    
+  end
+  
+  def delete
+    @user = User.find(params[:id])
+  end
+  
+  def destroy
+    User.find(params[:id]).destroy
+    redirect_to :action => "index"
+  end  
 end
