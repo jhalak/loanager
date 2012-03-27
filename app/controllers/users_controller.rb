@@ -23,6 +23,7 @@ class UsersController < ApplicationController
     #save the object
     if @user.save
       #redirect
+      flash[:notice] = "New user created"
       redirect_to(@user)
     else
       #view the form
@@ -40,6 +41,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     #update the object
     if @user.update_attributes(params[:user])
+      flash[:notice] = "User updated"
       redirect_to(:action => "show", :id => @user.id)
     else
       render("edit")

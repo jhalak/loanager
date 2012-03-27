@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Loanager</title>
-  <%= stylesheet_link_tag :all %>
-  <%= javascript_include_tag :defaults %>
-  <%= csrf_meta_tag %>
-</head>
-<body>
-
-<%= yield %>
-
-</body>
+	<head>
+		<title>Loanager | <%= @page_title %></title>
+		<%= stylesheet_link_tag "styles", :media => "all" %>
+		<%= javascript_include_tag :defaults %>
+		<%= csrf_meta_tag %>
+	</head>
+	<body>
+		<div class="message">
+			<% if flash[:notice] %>
+			<%= flash[:notice]%>
+			<% end %>
+		</div>
+		<%= yield %>
+	</body>
 </html>
