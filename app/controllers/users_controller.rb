@@ -2,11 +2,11 @@ class UsersController < ApplicationController
   
   def index
     list
-    render("list")
+    render "list"
   end
   
   def list
-    @users = User.order(:created_at => "desc");
+    @users = User.order :created_at => "desc"
   end
   
   def show
@@ -24,10 +24,10 @@ class UsersController < ApplicationController
     if @user.save
       #redirect
       flash[:notice] = "New user created"
-      redirect_to(@user)
+      redirect_to @user
     else
       #view the form
-      render("new")
+      render "new"
     end
   end
   
@@ -42,9 +42,9 @@ class UsersController < ApplicationController
     #update the object
     if @user.update_attributes(params[:user])
       flash[:notice] = "User updated"
-      redirect_to(:action => "show", :id => @user.id)
+      redirect_to :action => "show", :id => @user.id
     else
-      render("edit")
+      render "edit"
     end    
   end
   
