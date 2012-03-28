@@ -28,13 +28,26 @@ class User < ActiveRecord::Base
   
   
   
-  def self.make_salt username = ""
+  def self.make_salt(username = "")
     Digest::SHA1.hexdigest "#{username}#{Time.now}"
   end
   
-  def self.hash_with_salt password = "", salt = ""    
+  def self.hash_with_salt(password = "", salt = "")    
     Digest::SHA1.hexdigest "#{salt}#{password}"
   end
+  
+  def self.authenticate(username="", password="")
+    user = User.find_by_username(username)
+    if user && user.match_password(password)
+      return user
+    else
+      return false
+    end
+  end
+  
+  def match_password(password="")
+    return hashed_password == User.hash_with_salt(password, salt)
+  end 
   
   #private methods
   private 
@@ -42,7 +55,7 @@ class User < ActiveRecord::Base
     #when password have a value
     unless password.blank?
       self.salt = User.make_salt username if self.salt.blank?      
-      self.hashed_password = User.hash_with_salt password, salt
+      self.hashed_password = User.hash_with_salt(password, salt)
     end
   end
   

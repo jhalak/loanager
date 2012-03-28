@@ -1,5 +1,6 @@
 Loanager::Application.routes.draw do
   get "home/index"
+  match 'admin', :to => 'access#dashboard'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
