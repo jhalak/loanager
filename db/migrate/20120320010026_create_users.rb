@@ -10,6 +10,7 @@ class CreateUsers < ActiveRecord::Migration
       t.integer "active",     :default => 1
       t.timestamps
     end
+    User.create(:first_name => "Admin", :last_name => "User", :username => "admin", :password => "admin", :email => "admin@example.com")
   end
 
   def self.down
