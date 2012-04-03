@@ -1,4 +1,18 @@
 Loanager::Application.routes.draw do
+  get "people/list"
+
+  get "people/new"
+
+  get "people/create"
+
+  get "people/edit"
+
+  get "people/update"
+
+  get "people/delete"
+
+  get "people/destroy"
+
   get "home/index"
   match 'admin', :to => 'access#dashboard'
 
@@ -20,6 +34,7 @@ Loanager::Application.routes.draw do
       get :delete
     end
   end
+  
   #match 'users/list' => 'user#list'
     
   # Sample resource route with options:

@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
   scope :searh_by_id, lambda{|id| where(["id = ?", "#{id}"])}
   
   
-  
+  #utility functions
   def self.make_salt(username = "")
     Digest::SHA1.hexdigest "#{username}#{Time.now}"
   end
@@ -47,7 +47,7 @@ class User < ActiveRecord::Base
   
   def match_password(password="")
     return hashed_password == User.hash_with_salt(password, salt)
-  end 
+  end
   
   #private methods
   private 
