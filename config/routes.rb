@@ -1,4 +1,8 @@
 Loanager::Application.routes.draw do
+  resources :transactions
+
+  resources :people
+
   get "people/list"
 
   get "people/new"

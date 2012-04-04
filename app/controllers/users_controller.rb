@@ -24,6 +24,10 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     #save the object
     if @user.save
+      person = Person.new(:name => @user.first_name + " " + @user.last_name, :user_id => @user.id, :is_user => 1)
+      if person.save
+        flash[:notice] = "New profile created"
+      end 
       #redirect
       flash[:notice] = "New user created"
       redirect_to @user

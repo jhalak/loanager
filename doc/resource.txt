@@ -1,0 +1,7 @@
+
+# Scaffold command to create the Person Model:
+$ rails generate scaffold Person name:string user:references
+
+# Scaffold command to create the Transactions Model:
+$ rails generate scaffold Transactions title:string description:text from:integer to:integer amount:float user:references
+

@@ -1,7 +1,8 @@
 <h1>Dashboard</h1>
-<p>Find me in app/views/access/dashboard.html.erb</p>
 
 <ul>
 	<li><%= link_to("Manage users", users_path)%></li>
+	<li><%= link_to("Manage persons", people_path)%></li>
+	<li><%= link_to("Manage transactions", transactions_path)%></li>
 	<li><%= link_to("Logout", :controller => "access", :action => "logout")%></li>
 </ul>

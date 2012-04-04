@@ -22,7 +22,6 @@ class ApplicationController < ActionController::Base
     @current_user
   end
   
-  
   def logged_in?
     session[:id].present?
   end

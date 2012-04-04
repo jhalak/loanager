@@ -1,0 +1,29 @@
+<%= error_message_for_form @transaction %>
+
+<%= form_for(@transaction) do |f| %>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :from %><br />
+    <% 
+    	person_array = Person.where(:user_id => current_user.id).map{ |person|
+    		[person.name, person.id]
+    	} 
+    %>
+    <%= f.select :from, person_array%>
+  </div>
+  <div class="field">
+    <%= f.label :to %><br />
+    <%= f.select :to, person_array%>
+  </div>
+  <div class="field">
+    <%= f.label :amount %><br />
+    <%= f.text_field :amount %>
+  </div>  
+  <%= f.hidden_field :user_id, :value => current_user.id %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
