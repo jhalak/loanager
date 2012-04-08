@@ -1,0 +1,46 @@
+<div class="span12 columns">
+<div id="navbar" class="navbar navbar-static">
+  <div class="navbar-inner">
+    <div class="container" style="width: auto;">
+      <a class="brand" href="#">Loanager</a>
+      <ul class="nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle">Users <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to ("List Users", users_path) %></li>
+            <li class="divider"></li>
+            <li><%= link_to ("Add New User", new_user_path) %></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle">People <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to ("List People", people_path) %></li>
+            <li><%= link_to ("Add New People", new_person_path) %></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle">Transactions <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to ("List all transactions", transactions_path) %></li>
+            <li><%= link_to "List all paid transactions", transactions_path(:show_paid => "yes") %></li>
+            <li><%= link_to ("Add New transaction", new_transaction_path) %></li>
+            <li class="divider"></li>
+            <li><%= link_to ("Transaction summary", :controller => "transactions", :action => "summary") %></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav pull-right">        
+          <% if logged_in? %>
+						<li><%= link_to ("Dashboard", :controller => "access", :action =>"dashboard") %></li> 
+						<li><%= link_to ("Logout", :controller => "access", :action =>"logout") %></li>
+						<li><%= "Hello #{session[:username]}" %></li> 
+					<% else %>
+						<li><%= link_to ("Login", :controller => "access", :action =>"login") %></li>
+						<li><%= "Hello Guest" %> </li>
+					<% end %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div> <!-- /navbar-example -->

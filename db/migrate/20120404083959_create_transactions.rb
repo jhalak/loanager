@@ -6,6 +6,7 @@ class CreateTransactions < ActiveRecord::Migration
       t.integer :from
       t.integer :to
       t.float :amount
+      t.integer :is_paid, :size => 1, :default => 0
       t.references :user
 
       t.timestamps

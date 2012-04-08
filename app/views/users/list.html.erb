@@ -2,10 +2,10 @@
 
 <h1>User Management</h1>
 
-<%= link_to("Add user", :action => "new") %>
+<%= link_to "Add user", new_user_path, :class => "btn btn-success pull-right" %>
 
 
-<table cellpadding="5" cellspacing="0" border="0">
+<table cellpadding="5" cellspacing="0" border="0" class="table table-bordered table-condensed table-striped">
 	<thead>
 		<th>First Name</th>
 		<th>Last Name</th>
@@ -21,11 +21,13 @@
 			<td><%= user.username %></td>
 			<td><%= user.email %></td>
 			<td>
-				<%= link_to("View", user) %> |
-				<%= link_to("Edit", edit_user_path(user)) %> |
-				<%= link_to("Delete", delete_user_path(user)) %>
+				<%= link_to("View", user, {:class => "btn btn-info"}) %>
+				<%= link_to("Edit", edit_user_path(user), {:class => "btn btn-primary"}) %>
+				<%= link_to("Delete", delete_user_path(user), {:class => "btn btn-danger"}) %>
 			</td>
 		</tr>
 		<% end %>
 	</tbody>
 </table>
+
+<%= paginate @users %>

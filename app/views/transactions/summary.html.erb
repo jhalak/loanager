@@ -3,44 +3,58 @@
 gtotal = ttotal = 0
 %>
 <h3>People took from me</h3>
-<table>
-	<tr>
-		<td>Purpose</td>
-		<td>To</td>
-		<td>Amount</td>
-	</tr>
-<% @user_gave.each do |g| %>
-	<tr>
-		<td><%= g.title %></td>
-		<td><%= g.to_name %></td>
-		<td><%= g.amount %></td>
-	</tr>
-	<% gtotal += g.amount %>
-<% end %>
-	<tr>
-		<td colspan="3">Total</td>
-		<td><%= gtotal %></td>
-	</tr>
+<table class="table table-bordered table-striped">
+	<thead>
+		<tr>
+			<th>To</th>
+			<th>Purpose</th>
+			<th>Amount</th>
+			<th>&nbsp;</th>
+		</tr>
+	</thead>
+	<tbody>
+	<% @user_gave.each do |g| %>	
+		<tr>
+			<td><%= g.to_name %></td>
+			<td><%= g.description %></td>
+			<td><%= g.amount %></td>
+			<td>&nbsp;</td>
+		</tr>
+		<% gtotal += g.amount %>
+	<% end %>
+		<tr>
+			<td colspan="3">Total given</td>
+			<td><%= gtotal %></td>
+		</tr>
+	</tbody>
 </table>
+ 
+ <%= paginate @user_gave %>
  
 <h3>I took from people</h3>
-<table>
-	<tr>
-		<td>Purpose</td>
-		<td>From</td>
-		<td>Amount</td>
-	</tr>
-<% @user_took.each do |t| %>
-	<tr>
-		<td><%= t.title %></td>
-		<td><%= t.from_name %></td>
-		<td><%= t.amount %></td>
-	</tr>
-	<% ttotal += t.amount %>
-<% end %>
-	<tr>
-		<td colspan="3">Total</td>
-		<td><%= ttotal %></td>
-	</tr>
+<table class="table table-bordered table-striped">
+	<thead>
+		<tr>
+			<th>From</th>
+			<th>Purpose</th>
+			<th>Amount</th>
+			<th>&nbsp;</th>
+		</tr>
+	</thead>
+	<tbody>
+	<% @user_took.each do |t| %>
+		<tr>
+			<td><%= t.from_name %></td>
+			<td><%= t.description %></td>
+			<td><%= t.amount %></td>
+			<td>&nbsp;</td>
+		</tr>
+		<% ttotal += t.amount %>
+	<% end %>
+		<tr>
+			<td colspan="3">Total taken</td>
+			<td><%= ttotal %></td>
+		</tr>
+	</tbody>
 </table>
- 
+ <%= paginate @user_took %>

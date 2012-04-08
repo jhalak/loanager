@@ -1,6 +1,9 @@
 class Transaction < ActiveRecord::Base
   belongs_to :user
   
+  #pagination size
+  paginates_per 25
+  
   #validations
   validates :title, :presence => true
   validates :description, :presence => true

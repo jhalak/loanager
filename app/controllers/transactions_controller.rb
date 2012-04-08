@@ -3,7 +3,8 @@ class TransactionsController < ApplicationController
   
   # GET /transactions
   def index
-    @transactions = Transaction.where(:user_id => current_user.id)
+    query = params[:show_paid].present? ? {:user_id => current_user.id, :is_paid => 1} : {:user_id => current_user.id, :is_paid => 0}  
+    @transactions = Transaction.where(query).page params[:page]
   end
 
   # GET /transactions/1
@@ -51,7 +52,7 @@ class TransactionsController < ApplicationController
   
   def summary
     #raise current_user.person.inspect
-    @user_gave = Transaction.where(:from => current_user.person)
-    @user_took = Transaction.where(:to => current_user.person)
+    @user_gave = Transaction.where(:from => current_user.person).page params[:page]
+    @user_took = Transaction.where(:to => current_user.person).page params[:page]
   end
 end

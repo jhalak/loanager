@@ -30,3 +30,5 @@ gem 'sqlite3'
 #   gem 'webrat'
 # end
 gem 'mysql2', '< 0.3'
+
+gem 'kaminari'

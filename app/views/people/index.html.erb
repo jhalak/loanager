@@ -1,25 +1,21 @@
-<h1>Listing people</h1>
+<h1>People</h1>
 
-<table>
+<%= link_to 'Add New Person', new_person_path, {:class => "btn btn-success pull-right"} %>
+
+<table class="table table-bordered table-condensed table-striped">
   <tr>
     <th>Name</th>
-    <th>User</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Action</th>
   </tr>
 
 <% @people.each do |person| %>
   <tr>
     <td><%= person.name %></td>
-    <td><%= person.user %></td>
-    <td><%= link_to 'Show', person %></td>
-    <td><%= link_to 'Edit', edit_person_path(person) %></td>
-    <td><%= link_to 'Destroy', person, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td>
+    	<%= link_to 'Show', person, {:class => "btn btn-info"} %> 
+    	<%= link_to 'Edit', edit_person_path(person), {:class => "btn btn-primary"} %> 
+    	<%= link_to 'Delete', person, :class => "btn btn-danger", :confirm => 'Are you sure?', :method => :delete %>
+    </td>
   </tr>
 <% end %>
 </table>
-
-<br />
-
-<%= link_to 'New Person', new_person_path %>

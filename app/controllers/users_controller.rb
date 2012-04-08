@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   end
   
   def list
-    @users = User.order :created_at => "desc"
+    @users = User.order(:created_at => "desc").page params[:page]
   end
   
   def show

@@ -7,6 +7,9 @@ class User < ActiveRecord::Base
   has_many :transactions
   has_one :person, :conditions => {:is_user => 1}
   
+  #pagination size
+  paginates_per 15
+  
   # attribute accessors property
   attr_accessor :password  
   # normal property

@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(:version => 20120404083959) do
     t.integer  "from"
     t.integer  "to"
     t.float    "amount"
+    t.integer  "is_paid",     :default => 0
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
