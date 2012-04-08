@@ -4,5 +4,6 @@
 	<li><%= link_to("Manage users", users_path)%></li>
 	<li><%= link_to("Manage persons", people_path)%></li>
 	<li><%= link_to("Manage transactions", transactions_path)%></li>
+	<li><%= link_to("Transaction summary", :controller => "transaction", :action => "summary")%></li>
 	<li><%= link_to("Logout", :controller => "access", :action => "logout")%></li>
 </ul>

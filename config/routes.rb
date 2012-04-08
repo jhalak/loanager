@@ -1,24 +1,11 @@
 Loanager::Application.routes.draw do
   resources :transactions
-
   resources :people
-
-  get "people/list"
-
-  get "people/new"
-
-  get "people/create"
-
-  get "people/edit"
-
-  get "people/update"
-
-  get "people/delete"
-
-  get "people/destroy"
-
+    
   get "home/index"
-  match 'admin', :to => 'access#dashboard'
+  
+  match 'admin', :to => 'access#dashboard'  
+  match 'transaction/summary', :to => 'transactions#summary'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

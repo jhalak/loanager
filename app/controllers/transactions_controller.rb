@@ -48,4 +48,10 @@ class TransactionsController < ApplicationController
     @transaction.destroy
     redirect_to(transactions_url)
   end
+  
+  def summary
+    #raise current_user.person.inspect
+    @user_gave = Transaction.where(:from => current_user.person)
+    @user_took = Transaction.where(:to => current_user.person)
+  end
 end

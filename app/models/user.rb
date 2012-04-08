@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   # define relationships
   has_many :persons
   has_many :transactions
+  has_one :person, :conditions => {:is_user => 1}
   
   # attribute accessors property
   attr_accessor :password  
@@ -29,7 +30,7 @@ class User < ActiveRecord::Base
   
   ########## utility functions ####################
   def full_name
-    return "#{first_name} #{last_name}"
+    "#{first_name} #{last_name}"
   end
   
   def self.make_salt(username = "")
