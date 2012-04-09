@@ -61,11 +61,11 @@ class TransactionsController < ApplicationController
     if transaction.is_paid?
       transaction.is_paid = 0
       transaction.save
-      redirect_to transactions_url(:show_paid => "yes")
+      redirect_to transactions_url(:show_paid => "yes"), :notice => 'Transaction is due.'
     else
       transaction.is_paid = 1
       transaction.save
-      redirect_to transactions_url
+      redirect_to transactions_url, :notice => 'Transaction is paid.'
     end
   end
 end
