@@ -1,13 +1,8 @@
+<h1><%= @person.name %></h1>
 <p>
   <b>Name:</b>
   <%= @person.name %>
 </p>
-
-<p>
-  <b>User:</b>
-  <%= @person.user %>
-</p>
-
 
 <%= link_to 'Edit', edit_person_path(@person), :class => "btn btn-info" %>
 <%= link_to 'Back', people_path, :class => "btn" %>

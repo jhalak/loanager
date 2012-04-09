@@ -5,7 +5,8 @@ Loanager::Application.routes.draw do
   get "home/index"
   
   match 'admin', :to => 'access#dashboard'  
-  match 'transaction/summary', :to => 'transactions#summary'
+  match 'transaction/summary', :to => 'transactions#summary', :as => :transaction_summary
+  match 'transaction/change-status/:id' => 'transactions#change_status', :as => :transaction_change_status
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

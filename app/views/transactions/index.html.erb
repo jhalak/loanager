@@ -1,6 +1,6 @@
 <h1>Listing transactions</h1>
 
-<p><%= link_to 'New Transaction', new_transaction_path, {:class => "btn btn-success pull-right"} %></p>
+<p><%= link_to '+ New Transaction', new_transaction_path, {:class => "btn btn-success pull-right add-link"} %></p>
 
 <table class="table table-bordered table-condensed table-striped">
   <tr>
@@ -24,9 +24,9 @@
     	<%= link_to 'Edit', edit_transaction_path(transaction), {:class => "btn btn-primary"} %>
     	<%= link_to 'Delete', transaction, :class => "btn btn-danger", :confirm => 'Are you sure?', :method => :delete %>
     	<% if transaction.is_paid? %>
-    		<%= link_to 'Make it due', transaction, :class => "btn"%>
+    		<%= link_to 'Mark as due', transaction_change_status_path(transaction.id), :class => "btn"%>
     	<% else %>
-    		<%= link_to 'Make it paid', transaction, :class => "btn"%>
+    		<%= link_to 'Mark as paid', transaction_change_status_path(transaction.id), :class => "btn"%>
     	<% end %>
     </td>
   </tr>

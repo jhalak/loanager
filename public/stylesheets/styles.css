@@ -1,6 +1,33 @@
 body{
-	
+	background-color: #8F9DA1;
+	font-family: sans-serif, Verdana, Geneva, Arial, Helvetica;
+	color:#882811;
+}
+.content{
+	background-color: #FFFFDD;
+	padding: 15px;
+	-webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  position: relative;
 }
 h1{
-	margin-bottom: 15px;
+	margin-bottom: 20px;
+	font-family: 'Berkshire Swash', cursive;
+}
+.nav .name{
+	color: #fff;
+  float: none;
+  line-height: 19px;
+  padding: 10px 10px 11px;
+  text-decoration: none;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+.home-intro{
+	text-align: center;
+}
+.add-link{
+	position: absolute;
+	right: 15px;
+	top:15px;
 }

@@ -21,6 +21,10 @@ class ApplicationController < ActionController::Base
     end
     @current_user
   end
+
+  def is_admin?
+    session[:id].present? && session[:id] == 1
+  end
   
   def logged_in?
     session[:id].present?

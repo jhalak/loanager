@@ -1,3 +1,5 @@
+<h1><%= @transaction.title %></h1>
+
 <p>
   <b>Title:</b>
   <%= @transaction.title %>
@@ -10,12 +12,12 @@
 
 <p>
   <b>From:</b>
-  <%= @transaction.from %>
+  <%= @transaction.from_name %>
 </p>
 
 <p>
   <b>To:</b>
-  <%= @transaction.to %>
+  <%= @transaction.to_name %>
 </p>
 
 <p>
@@ -25,7 +27,7 @@
 
 <p>
   <b>Paid:</b>
-  <%= @transaction.is_paid %>
+  <%= @transaction.is_paid? ? "Yes" : "No" %>
 </p>
 
 

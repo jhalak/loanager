@@ -52,7 +52,20 @@ class TransactionsController < ApplicationController
   
   def summary
     #raise current_user.person.inspect
-    @user_gave = Transaction.where(:from => current_user.person).page params[:page]
-    @user_took = Transaction.where(:to => current_user.person).page params[:page]
+    @user_gave = Transaction.where(:from => current_user.person, :is_paid => 0).page params[:page]
+    @user_took = Transaction.where(:to => current_user.person, :is_paid => 0).page params[:page]
+  end
+  
+  def change_status
+    transaction = Transaction.find(params[:id])
+    if transaction.is_paid?
+      transaction.is_paid = 0
+      transaction.save
+      redirect_to transactions_url(:show_paid => "yes")
+    else
+      transaction.is_paid = 1
+      transaction.save
+      redirect_to transactions_url
+    end
   end
 end
